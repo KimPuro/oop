@@ -5,8 +5,17 @@ import service.GradeService;
 public class GradeServiceImpl implements GradeService {
 
 
+    public static GradeService instance = new GradeServiceImpl();{
+    }
+    private GradeServiceImpl() {
+    }
+    public static GradeService getInstance() {
+        return instance;
+    }
+
+
     @Override
-    public int createTotal(int korean, int english, int math) {
+    public int getTotalScore(int korean, int english, int math) {
         SubjectDto model = new SubjectDto(korean, english, math);
         model.setKorean(korean);
         model.setEnglish(english);
@@ -15,7 +24,7 @@ public class GradeServiceImpl implements GradeService {
     }
 
     @Override
-    public double createAvg(int total) {
+    public double findAverage(int total) {
         return total / 3.0;
     }
 }
