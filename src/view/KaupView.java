@@ -1,19 +1,27 @@
 package view;
+import builder.UserBuilder;
+import model.MemberDto;
+import service.KaupService;
+import service.UtilService;
 
 import serviceImpl.KaupServiceImpl;
+import serviceImpl.UtilServiceImpl;
 
 import java.util.Scanner;
 
 public class KaupView {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("몸무게를 입력하세요.");
-        double weight = scanner.nextDouble();
-        System.out.println("키를 입력하세요.");
-        double height = scanner.nextDouble();
+        UtilService util = UtilServiceImpl.getInstance();
+        MemberDto person = new UserBuilder()
+                .height(util.createRandomDouble(150, 50))
+                .weight(util.createRandomDouble(50, 100))
+                .build();
+                KaupService kaup = KaupServiceImpl.getInstance();
 
-        KaupServiceImpl kaupService = new KaupServiceImpl();
-        double bmi = kaupService.createBmi(height, weight);
+                String bmi = kaup.createBmi(person);
+                String bodyMass = kaup.createBodyMass(Double.parseDouble(bmi));
+
 
         System.out.println("당신의 BMI 지수는 " + bmi + "입니다.");
 

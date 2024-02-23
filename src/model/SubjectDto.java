@@ -5,6 +5,10 @@ public class SubjectDto {
     private int english;
     private int math;
 
+    public SubjectDto(int korean) {
+        this.korean = korean;
+    }
+
     @Override
     public String toString() {
         return "SubjectDto{" +
@@ -38,7 +42,13 @@ public class SubjectDto {
         return korean;
     }
 
-    public SubjectDto(int korean) {
+    public SubjectDto(int korean, int english, int math) {
         this.korean = korean;
+        this.english = english;
+        this.math = math;
+    }
+
+    public int createTotal() {
+        return korean + english + math;
     }
 }

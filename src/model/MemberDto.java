@@ -1,25 +1,20 @@
 package model;
-public class MemberDt0 {
-    private String id;
+public class MemberDto {
+    private String username;
     private String pw;
     private String name;
-    private String personId;
+    private String personalId;
     private String phoneNumber;
     private String address;
     private String job;
-    private double weight;
-    private double height;
-
-    public MemberDt0() {
-    }
 
     @Override
     public String toString() {
-        return "MemberDt0{" +
-                "id='" + id + '\'' +
+        return "MemberDto{" +
+                "username='" + username + '\'' +
                 ", pw='" + pw + '\'' +
                 ", name='" + name + '\'' +
-                ", personId='" + personId + '\'' +
+                ", personalId='" + personalId + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
                 ", job='" + job + '\'' +
@@ -28,27 +23,31 @@ public class MemberDt0 {
                 '}';
     }
 
-    public MemberDt0(String id) {
-        this.id = id;
+    private double weight;
+    private double height;
+
+    public MemberDto() {
+    }
+
+    public MemberDto(String username) {
+        this.username = username;
     }
 
 
 
-    //카우프 지수에서 사용하는 생성자
-    public MemberDt0(double height, double weight) {
-        this.height = height;
-        this.weight = weight;
-    }
+
 
     // 회원가입에서 사용하는 생성자;
-    public MemberDt0(String id, String pw, String pwAgain, String name, String personId, String phoneNumber, String address, String job) {
-        this.id = id;
+    public MemberDto(String username, String pw, String name, String personalId, String phoneNumber, String address, String job, double weight, double height) {
+        this.username = username;
         this.pw = pw;
         this.name = name;
-        this.personId = personId;
+        this.personalId = personalId;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.job = job;
+        this.weight = weight;
+        this.height = height;
     }
 
     public int returnRandomHeight() {
@@ -59,8 +58,8 @@ public class MemberDt0 {
         return (int) (Math.random() * 100) + 30;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPw(String pw) {
@@ -79,8 +78,8 @@ public class MemberDt0 {
         this.name = name;
     }
 
-    public void setPersonId(String personId) {
-        this.personId = personId;
+    public void setPersonalId(String personalId) {
+        this.personalId = personalId;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -95,8 +94,8 @@ public class MemberDt0 {
         this.job = job;
     }
 
-    public String getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
     public String getPw() {
@@ -107,8 +106,8 @@ public class MemberDt0 {
         return name;
     }
 
-    public String getPersonId() {
-        return personId;
+    public String getPersonalId() {
+        return personalId;
     }
 
     public String getPhoneNumber() {
@@ -139,22 +138,6 @@ public class MemberDt0 {
         this.weight = weight;
     }
 
-    public double createBmi(){
-        return weight / height * height;
     }
-    public void createBodyMass() {
-        double bmi = weight / (height * height);
-        if (bmi < 18.5) {
-            System.out.println("저체중");
-        } else if (bmi < 23) {
-            System.out.println("정상");
-        } else if (bmi < 25) {
-            System.out.println("과체중");
-        } else if (bmi < 30) {
-            System.out.println("비만");
-        } else {
-            System.out.println("고도비만");
-        }
-    }
-}
+
 
