@@ -1,5 +1,6 @@
 package model;
 public class MemberDto {
+    private int id;
     private String username;
     private String pw;
     private String name;

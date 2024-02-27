@@ -7,17 +7,18 @@ import serviceImpl.UtilServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BoardView {
-    public static void main(String[] args) {
+    public static void main(Scanner sc) {
         List<BoardDto> articles = new ArrayList<>();
-        UtilService utill = UtilServiceImpl.getInstance();
+        UtilService util = UtilServiceImpl.getInstance();
 
         for (int i = 0; i < 5; i++) {
             articles.add(new BoardBuilder()
-                    .title(utill.createRandomTitle())
-                    .content(utill.createRandomContent())
-                    .writer(utill.createRandomName())
+                    .title(util.createRandomTitle())
+                    .content(util.createRandomContent())
+                    .writer(util.createRandomName())
                     .build());
         }
         System.out.println(" ====== 게시판 글 목록 ======");

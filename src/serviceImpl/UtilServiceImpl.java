@@ -41,8 +41,23 @@ public class UtilServiceImpl implements UtilService {
         String[] titles = {"게시판", "공지사항", "자유게시판", "질문과 답변", "자료실", "토론방", "커뮤니티", "자유게시판", "질문과 답변", "자료실", "토론방", "커뮤니티", "자유게시판", "질문과 답변", "자료실", "토론방", "커뮤니티", "자유게시판", "질문과 답변", "자료실"};
         return titles[createRandomInt(0, 20)];
     }
+    @Override
     public String createRandomCompany() {
         String[] companies = {"삼성전자", "LG전자", "SK하이닉스", "현대자동차", "기아자동차", "POSCO", "NAVER", "카카오", "삼성바이오로직스", "셀트리온", "현대모비스", "LG화학", "삼성SDI", "삼성물산", "LG디스플레이", "SK이노베이션", "SK텔레콤", "LG유플러스", "KT", "한국전력"};
         return companies[createRandomInt(0, 20)];
+    }
+    @Override
+    public String createRandomEnglishName() {
+        String[] englishNames = {"James", "John", "Robert", "Michael", "William", "David", "Richard", "Joseph", "Thomas", "Charles", "Christopher", "Daniel", "Matthew", "Anthony", "Donald", "Mark", "Paul", "Steven", "Andrew", "Kenneth"};
+        return englishNames[createRandomInt(0, 20)];
+    }
+    @Override
+    public String createRandomLowerCaseUsername() {
+        char[] alphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+        String username = "";
+        for (int i = 0 ; i < 5 ; i++){
+            username += String.valueOf(alphabet[createRandomInt(0,25)]);
+        }
+        return username;
     }
 }

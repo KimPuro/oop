@@ -10,8 +10,7 @@ import serviceImpl.UtilServiceImpl;
 import java.util.Scanner;
 
 public class KaupView {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main() {
         UtilService util = UtilServiceImpl.getInstance();
         MemberDto person = new UserBuilder()
                 .height(util.createRandomDouble(150, 50))

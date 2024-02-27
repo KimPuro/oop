@@ -6,6 +6,7 @@ public class BoardDto {
     private String title;
     private String content;
     private String writer;
+    private int id;
 
     public BoardDto(String title, String content, String writer) {
         this.title = title;
