@@ -19,16 +19,11 @@ public class MemberDto {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address='" + address + '\'' +
                 ", job='" + job + '\'' +
-                ", weight=" + weight +
-                ", height=" + height +
                 '}';
     }
 
     private double weight;
     private double height;
-
-    public MemberDto() {
-    }
 
     public MemberDto(String username) {
         this.username = username;
@@ -39,7 +34,7 @@ public class MemberDto {
 
 
     // 회원가입에서 사용하는 생성자;
-    public MemberDto(String username, String pw, String name, String personalId, String phoneNumber, String address, String job, double weight, double height) {
+    public MemberDto(String username, String pw, String name, String personalId, String phoneNumber, String address, String job) {
         this.username = username;
         this.pw = pw;
         this.name = name;
@@ -47,8 +42,6 @@ public class MemberDto {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.job = job;
-        this.weight = weight;
-        this.height = height;
     }
 
     public int returnRandomHeight() {

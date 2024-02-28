@@ -50,6 +50,6 @@ public class UserBuilder {
         return this;
     }
     public MemberDto build() {
-        return new MemberDto(userName, pw, name, personalId, phoneNumber, address, job, weight, height);
+        return new MemberDto(userName, pw, name, personalId, phoneNumber, address, job);
     }
 }

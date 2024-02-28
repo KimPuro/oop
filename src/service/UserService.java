@@ -5,6 +5,7 @@ import model.MemberDto;
 import java.util.List;
 
 public interface UserService {
+    String addUsers();
     String join(MemberDto user);
     String login(MemberDto user);
     MemberDto findUserByID(String username);

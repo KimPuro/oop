@@ -7,6 +7,11 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService{
     @Override
+    public String addUsers() {
+        return null;
+    }
+
+    @Override
     public String join(MemberDto user) {
         return null;
     }
