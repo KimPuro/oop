@@ -2,7 +2,6 @@ package view;
 import java.util.Scanner;
 
 import builder.SubjectBuilder;
-import builder.UserBuilder;
 import model.MemberDto;
 import model.SubjectDto;
 import service.GradeService;
@@ -15,7 +14,7 @@ public class GradeView {
         System.out.println("이름을 입력하세요");
         UtilService util = UtilServiceImpl.getInstance();
         GradeService grade = GradeServiceImpl.getInstance();
-        MemberDto student = new UserBuilder()
+        MemberDto student = MemberDto.builder()
                 .name(sc.next())
                 .build();
         SubjectDto subjects = new SubjectBuilder()

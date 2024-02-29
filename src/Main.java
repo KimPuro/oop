@@ -1,57 +1,31 @@
+import view.*;
+import java.util.Scanner;
 
-import controller.UserController;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-public class Main extends JFrame {
-    private UserController ctrl;
-
-    public Main() {
-        ctrl = new UserController();
-        ctrl.addUsers();
-
-        setTitle("User Management");
-        setSize(400, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        Container contentPane = getContentPane();
-        contentPane.setLayout(new FlowLayout());
-
-        JButton joinButton = new JButton("회원가입");
-        joinButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // 회원가입 로직 구현
-            }
-        });
-
-        JButton loginButton = new JButton("로그인");
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // 로그인 로직 구현
-            }
-        });
-
-        JButton searchButton = new JButton("username 검색");
-        searchButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // username 검색 로직 구현
-            }
-        });
-
-        contentPane.add(joinButton);
-        contentPane.add(loginButton);
-        contentPane.add(searchButton);
-
-        setVisible(true);
-    }
-
+public class Main {
     public static void main(String[] args) {
-        new Main();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("0-종료, 1-회원가입, 2-회원관리, 3-게시판, 4-카우프 5-성적확인");
+        switch (sc.next()) {
+            case "0":
+                System.out.println("종료합니다.");
+                return;
+            case "1":
+                JoinView.main(sc);
+                break;
+            case "2":
+                UserView.main(sc);
+                break;
+            case "3":
+                BoardView.main(sc);
+                break;
+            case "4":
+                KaupView.main();
+                break;
+            case "5":
+                GradeView.main(sc);
+                break;
+
+        }
+
     }
 }

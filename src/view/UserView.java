@@ -5,8 +5,7 @@ import controller.UserController;
 import java.util.Scanner;
 
 public class UserView {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(Scanner sc) {
         UserController ctrl = new UserController();
         ctrl.addUsers();
         while (true) {

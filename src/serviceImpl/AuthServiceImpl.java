@@ -1,5 +1,4 @@
 package serviceImpl;
-import builder.UserBuilder;
 import model.MemberDto;
 
 import service.AuthService;
@@ -13,8 +12,10 @@ public class AuthServiceImpl implements AuthService {
     private Map<String, MemberDto> users = new HashMap<>();
     private static AuthService instance = new AuthServiceImpl();
     private UtilService util = UtilServiceImpl.getInstance();
-     private AuthServiceImpl() {
-     }
+
+    private AuthServiceImpl() {
+    }
+
     public static AuthService getInstance() {
         return instance;
     }
@@ -23,7 +24,7 @@ public class AuthServiceImpl implements AuthService {
     public Map<String, MemberDto> addUsers() {
         for (int i = 0; i < 5; i++) {
             String username = util.createRandomLowerCaseUsername();
-            users.put(username, new UserBuilder()
+            users.put(username, MemberDto.builder()
                     .username(username)
                     .pw("1")
                     .name(util.createRandomName())
@@ -36,12 +37,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Map<String, MemberDto> joinUser(Scanner sc) {
-            String username = sc.next();
-            users.put(username, new UserBuilder()
-                    .username(username)
-                    .pw("1")
-                    .name(util.createRandomName())
-                    .build());
+        String username = sc.next();
+        users.put(username, MemberDto.builder()
+                .username(username)
+                .pw("1")
+                .name(util.createRandomName())
+                .build());
         return users;
     }
 
@@ -93,14 +94,44 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void findUsersByName(String name) {
+/*    public void findUsersByName(String name) {
+        boolean userFound = false;
         for (Map.Entry<String, MemberDto> entry : users.entrySet()) {
             if (entry.getValue().getName().equals(name)) {
                 System.out.println(entry.getValue());
-            }
-            else {
-                System.out.println("해당 이름을 가진 유저가 존재하지 않습니다.");
+                userFound = true;
+                break;
             }
         }
+        if (!userFound) {
+            System.out.println("해당 이름을 가진 유저가 존재하지 않습니다.");
+        }
+    }*/
+    public String findUsersByName(String name) {
+        return users.entrySet().stream()
+                .filter(entry -> entry.getValue().getName().equals(name))
+                .findFirst()
+                .map(entry -> {
+                    System.out.println(entry.getValue());
+                    return entry.getValue().toString();
+                })
+                .orElse("해당 이름을 가진 유저가 존재하지 않습니다.");
     }
+
+    @Override
+    public void findUser(Scanner sc) {
+        String userInput = sc.next();
+        if (users.containsKey(userInput)) {
+            System.out.println(users.get(userInput));
+        } else {
+            System.out.println("해당 유저가 존재하지 않습니다.");
+        }
+    }
+
+    @Override
+    public void printUsers() {
+        for (Map.Entry<String, MemberDto> entry : users.entrySet()) {
+            System.out.println(entry.getValue());
+    }
+}
 }

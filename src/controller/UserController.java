@@ -22,18 +22,11 @@ public class UserController {
     }
 
     public void findUser(Scanner sc) {
-        String userInput = sc.next();
-        if (users.containsKey(userInput)) {
-            System.out.println(users.get(userInput));
-        } else {
-            System.out.println("해당 유저가 존재하지 않습니다.");
-        }
+        auth.findUser(sc);
     }
 
     public void printUsers() {
-        for (Map.Entry<String, MemberDto> entry : users.entrySet()) {
-            System.out.println(entry.getValue());
-        }
+        auth.printUsers();
     }
 
     public void countUsers() {

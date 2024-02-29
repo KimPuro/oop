@@ -1,14 +1,12 @@
 package view;
 import model.MemberDto;
 import java.util.Scanner;
-import builder.UserBuilder;
-import serviceImpl.AuthServiceImpl;
 
 public class JoinView {
     public static void main(Scanner sc) {
         System.out.println("ID, 비밀번호, 비밀번호 확인" +
                 "이름, 주민번호, 전화번호, 주소, 직업, 몸무게, 키 순으로 입력하세요.");
-        MemberDto memberDto = new UserBuilder()
+        MemberDto memberDto = MemberDto.builder()
                 .username(sc.next())
                 .pw(sc.next())
                 .name(sc.next())

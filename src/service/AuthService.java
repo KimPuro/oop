@@ -21,5 +21,7 @@ public interface AuthService {
 
     void findUserByJob(String job);
 
-    void findUsersByName(String name);
+    String findUsersByName(String name);
+    void findUser(Scanner sc);
+    void printUsers();
 }

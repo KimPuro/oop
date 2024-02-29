@@ -1,4 +1,12 @@
 package model;
+import lombok.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
 public class MemberDto {
     private int id;
     private String username;
@@ -9,32 +17,7 @@ public class MemberDto {
     private String address;
     private String job;
 
-    @Override
-    public String toString() {
-        return "MemberDto{" +
-                "username='" + username + '\'' +
-                ", pw='" + pw + '\'' +
-                ", name='" + name + '\'' +
-                ", personalId='" + personalId + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
-                ", job='" + job + '\'' +
-                '}';
-    }
-
-    private double weight;
-    private double height;
-
-    public MemberDto(String username) {
-        this.username = username;
-    }
-
-
-
-
-
-    // 회원가입에서 사용하는 생성자;
-    public MemberDto(String username, String pw, String name, String personalId, String phoneNumber, String address, String job) {
+    public MemberDto(String username, String pw, String name, String personalId, String phoneNumber, String address, String job, double weight, double height) {
         this.username = username;
         this.pw = pw;
         this.name = name;
@@ -42,6 +25,15 @@ public class MemberDto {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.job = job;
+        this.weight = weight;
+        this.height = height;
+    }
+
+    private double weight;
+    private double height;
+
+    public MemberDto(String username) {
+        this.username = username;
     }
 
     public int returnRandomHeight() {
@@ -52,13 +44,7 @@ public class MemberDto {
         return (int) (Math.random() * 100) + 30;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
-    public void setPw(String pw) {
-        this.pw = pw;
-    }
 
     public void setPwAgain(String pwAgain) {
         if (pw.equals(pwAgain)) {
@@ -68,70 +54,11 @@ public class MemberDto {
         }
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public void setPersonalId(String personalId) {
-        this.personalId = personalId;
-    }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPw() {
-        return pw;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPersonalId() {
-        return personalId;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setHeight(double height) {
+    public void createMeter(double height) {
         this.height = height/100;
     }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    }
+}
 
 

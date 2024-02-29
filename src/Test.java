@@ -1,4 +1,3 @@
-import builder.UserBuilder;
 import model.MemberDto;
 import service.UtilService;
 import serviceImpl.UtilServiceImpl;
@@ -16,7 +15,7 @@ public class Test {
             Map<String, MemberDto> map = new HashMap<>();
             UtilService util = UtilServiceImpl.getInstance();
             for (int i = 0; i < 5; i++) {
-                map.put(util.createRandomLowerCaseUsername(), new UserBuilder()
+                map.put(util.createRandomLowerCaseUsername(), MemberDto.builder()
                         .build());
             }
     }

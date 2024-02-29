@@ -1,7 +1,6 @@
 package builder;
 
 import model.MemberDto;
-
 public class UserBuilder {
     private String userName;
     private String pw;
@@ -50,6 +49,6 @@ public class UserBuilder {
         return this;
     }
     public MemberDto build() {
-        return new MemberDto(userName, pw, name, personalId, phoneNumber, address, job);
+        return new MemberDto(userName, pw, name, personalId, phoneNumber, address, job, weight, height);
     }
 }

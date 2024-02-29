@@ -1,7 +1,5 @@
 package service;
 
-import serviceImpl.UtilServiceImpl;
-
 public interface UtilService {
     public
     int createRandomInt(int start, int end);
@@ -13,4 +11,12 @@ public interface UtilService {
     String createRandomLowerCaseUsername();
     String createRandomEnglishName();
     String createRandomCompany();
+
+    interface AccountService {
+        void createAccount(String accountNumber, String accountHolder);
+        void deposit(String accountNumber, double amount);
+        void withdraw(String accountNumber, double amount);
+        double getBalance(String accountNumber);
+        void cancelAccount(String accountNumber);
+    }
 }
