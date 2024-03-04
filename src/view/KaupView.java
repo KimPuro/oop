@@ -1,5 +1,5 @@
 package view;
-import model.MemberDto;
+import model.Member;
 import service.KaupService;
 import service.UtilService;
 
@@ -9,7 +9,7 @@ import serviceImpl.UtilServiceImpl;
 public class KaupView {
     public static void main() {
         UtilService util = UtilServiceImpl.getInstance();
-        MemberDto person = MemberDto.builder()
+        Member person = Member.builder()
                 .height(util.createRandomDouble(150, 50))
                 .weight(util.createRandomDouble(50, 100))
                 .build();

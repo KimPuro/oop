@@ -1,19 +1,20 @@
 package serviceImpl;
-import model.MemberDto;
+import model.Member;
 
 import service.AuthService;
 import service.UtilService;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class AuthServiceImpl implements AuthService {
-    private Map<String, MemberDto> users = new HashMap<>();
+    List<?> memberList;
+    Map<String, Member> users;
     private static AuthService instance = new AuthServiceImpl();
     private UtilService util = UtilServiceImpl.getInstance();
 
     private AuthServiceImpl() {
+        this.users = new HashMap<>();
+        this.memberList = new ArrayList<>();
     }
 
     public static AuthService getInstance() {
@@ -21,10 +22,10 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Map<String, MemberDto> addUsers() {
+    public Map<String, Member> addUsers() {
         for (int i = 0; i < 5; i++) {
             String username = util.createRandomLowerCaseUsername();
-            users.put(username, MemberDto.builder()
+            users.put(username, Member.builder()
                     .username(username)
                     .pw("1")
                     .name(util.createRandomName())
@@ -36,9 +37,9 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Map<String, MemberDto> joinUser(Scanner sc) {
+    public Map<String, Member> joinUser(Scanner sc) {
         String username = sc.next();
-        users.put(username, MemberDto.builder()
+        users.put(username, Member.builder()
                 .username(username)
                 .pw("1")
                 .name(util.createRandomName())
@@ -130,7 +131,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void printUsers() {
-        for (Map.Entry<String, MemberDto> entry : users.entrySet()) {
+        for (Map.Entry<String, Member> entry : users.entrySet()) {
             System.out.println(entry.getValue());
     }
 }

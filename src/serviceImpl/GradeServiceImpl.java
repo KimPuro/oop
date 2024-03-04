@@ -1,5 +1,5 @@
 package serviceImpl;
-import model.SubjectDto;
+import model.Subject;
 import service.GradeService;
 
 public class GradeServiceImpl implements GradeService {
@@ -16,7 +16,7 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public int getTotalScore(int korean, int english, int math) {
-        SubjectDto model = new SubjectDto(korean, english, math);
+        Subject model = new Subject(korean, english, math);
         model.setKorean(korean);
         model.setEnglish(english);
         model.setMath(math);

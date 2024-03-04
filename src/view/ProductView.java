@@ -1,6 +1,6 @@
 package view;
 
-import model.ProductDto;
+import model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +13,12 @@ import serviceImpl.UtilServiceImpl;
 public class ProductView {
     public static void main(String[] args) {
         UtilService util = UtilServiceImpl.getInstance();
-        List<ProductDto> list = new ArrayList<>();
+        List<Product> list = new ArrayList<>();
         for (int i = 1; i <= 5; i++) {
-            ProductDto product = new ProductDto(i, "상품 " + i, "회사 ", util.createRandomInt(1000, 10000));
+            Product product = new Product(i, "상품 " + i, "회사 ", util.createRandomInt(1000, 10000));
             list.add(product);
         }
-        Stream<ProductDto> stream = list.stream();
+        Stream<Product> stream = list.stream();
         stream.forEach(p -> System.out.println(p));
     }
 }

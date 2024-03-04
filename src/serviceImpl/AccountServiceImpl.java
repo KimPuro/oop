@@ -1,6 +1,6 @@
 package serviceImpl;
 import lombok.Getter;
-import model.AccountDto;
+import model.Account;
 import service.AccountService;
 
 import java.util.ArrayList;
@@ -9,24 +9,24 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
     @Getter
     private static AccountService instance = new AccountServiceImpl();
-    List<AccountDto> accounts;
+    List<Account> accounts;
 
     private AccountServiceImpl() {
         this.accounts = new ArrayList<>();
     }
 
     @Override
-    public String createAccount(AccountDto account) {
+    public String createAccount(Account account) {
         return null;
     }
 
     @Override
-    public String deposit(AccountDto account) {
+    public String deposit(Account account) {
         return null;
     }
 
     @Override
-    public String withdraw(AccountDto account) {
+    public String withdraw(Account account) {
         return null;
     }
 
@@ -36,7 +36,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDto> getAccounts(String accountNumber) {
+    public List<Account> getAccounts(String accountNumber) {
         return null;
     }
 

@@ -1,13 +1,10 @@
 package model;
 import lombok.*;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 @ToString
-@Builder
-public class MemberDto {
+public class Member {
     private int id;
     private String username;
     private String pw;
@@ -17,7 +14,27 @@ public class MemberDto {
     private String address;
     private String job;
 
-    public MemberDto(String username, String pw, String name, String personalId, String phoneNumber, String address, String job, double weight, double height) {
+    public Member(String username, String pw, String name, String personalId, String phoneNumber, String address, String job, double weight, double height) {
+        this.username = username;
+        this.pw = pw;
+        this.name = name;
+        this.personalId = personalId;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.job = job;
+        this.weight = weight;
+        this.height = height;
+    }
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
+    private double weight;
+    private double height;
+
+    @Builder
+    public Member(int id, String username, String pw, String name, String personalId, String phoneNumber, String address, String job, double weight, double height) {
+        this.id = id;
         this.username = username;
         this.pw = pw;
         this.name = name;
@@ -29,10 +46,7 @@ public class MemberDto {
         this.height = height;
     }
 
-    private double weight;
-    private double height;
-
-    public MemberDto(String username) {
+    public Member(String username) {
         this.username = username;
     }
 
@@ -60,5 +74,7 @@ public class MemberDto {
         this.height = height/100;
     }
 }
+
+
 
 

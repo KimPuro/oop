@@ -1,15 +1,15 @@
 package service;
 
-import model.MemberDto;
+import model.Member;
 
 import java.util.Map;
 import java.util.Scanner;
 
 public interface AuthService {
 
-    Map<String, MemberDto> addUsers();
+    Map<String, Member> addUsers();
 
-    Map<String, MemberDto> joinUser(Scanner sc);
+    Map<String, Member> joinUser(Scanner sc);
 
     String countUsers();
 

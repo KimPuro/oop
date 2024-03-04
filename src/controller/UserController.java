@@ -1,6 +1,6 @@
 package controller;
 
-import model.MemberDto;
+import model.Member;
 import service.AuthService;
 import serviceImpl.AuthServiceImpl;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class UserController {
     AuthService auth = AuthServiceImpl.getInstance();
 
-    private Map<String, MemberDto> users;
+    private Map<String, Member> users;
 
     public UserController() {
         this.users = new HashMap<>();

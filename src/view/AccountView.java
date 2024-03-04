@@ -1,7 +1,7 @@
 package view;
 
 import controller.AccountController;
-import model.AccountDto;
+import model.Account;
 
 import java.util.List;
 import java.util.Scanner;
@@ -37,7 +37,7 @@ public class AccountView {
                     break;
                 case "6":
                     System.out.println("account list.");
-                    List<AccountDto> temp = accountController.getAccounts(sc);
+                    List<Account> temp = accountController.getAccounts(sc);
             }
         }
 

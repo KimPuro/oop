@@ -1,6 +1,6 @@
 package serviceImpl;
 
-import model.MemberDto;
+import model.Member;
 import service.UserService;
 
 import java.util.List;
@@ -12,22 +12,22 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public String join(MemberDto user) {
+    public String join(Member user) {
         return null;
     }
 
     @Override
-    public String login(MemberDto user) {
+    public String login(Member user) {
         return null;
     }
 
     @Override
-    public MemberDto findUserByID(String username) {
+    public Member findUserByID(String username) {
         return null;
     }
 
     @Override
-    public void updatePassword(MemberDto user) {
+    public void updatePassword(Member user) {
 
     }
 
@@ -37,17 +37,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<MemberDto> getUserList() {
+    public List<Member> getUserList() {
         return null;
     }
 
     @Override
-    public List<MemberDto> findUsersByName(String name) {
+    public List<Member> findUsersByName(String name) {
         return null;
     }
 
     @Override
-    public List<MemberDto> findUserByJob(String job) {
+    public List<Member> findUserByJob(String job) {
         return null;
     }
 
